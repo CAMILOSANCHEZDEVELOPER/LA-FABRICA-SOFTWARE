@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fabrica Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --primary-color: #0052D4;
+            --text-color-dark: #1a202c;
+            --text-color-light: #4a5568;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color-dark);
+            overflow-x: hidden;
+        }
+
+        .aurora-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background:
+                radial-gradient(ellipse at 70% 30%, hsla(210, 90%, 70%, 0.5) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, hsla(280, 80%, 75%, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, hsla(340, 75%, 70%, 0.35) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, hsla(40, 80%, 70%, 0.4) 0%, transparent 50%);
+            filter: blur(20px);
+            opacity: 0.8;
+            animation: aurora 25s infinite linear;
+        }
+
+        @keyframes aurora {
+            0% { transform: rotate(0deg) scale(1.5); }
+            50% { transform: rotate(180deg) scale(2.0); }
+            100% { transform: rotate(360deg) scale(1.5); }
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.25);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-container:hover {
+             box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+             transform: translateY(-5px);
+        }
+        
+        .glass-button {
+            background: rgba(255, 255, 255, 0.3);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 16px 0 rgba(31, 38, 135, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .glass-input {
+            background: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+        }
+        
+        .primary-button {
+            background: linear-gradient(45deg, var(--primary-color), #4e8cff);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 20px 0 rgba(0, 82, 212, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="aurora-background"></div>
+    <div id="particles-js"></div>
+
+    <div class="relative z-10">
+        <!-- Header -->
+        <header class="container mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-extrabold text-text-color-dark">La Fabrica Software</h1>
+                <nav class="hidden md:flex items-center gap-2">
+                    <a href="#servicios" class="glass-button px-4 py-2 text-sm font-semibold">Servicios</a>
+                    <a href="#nosotros" class="glass-button px-4 py-2 text-sm font-semibold">Nosotros</a>
+                    <a href="#contacto" class="glass-button primary-button px-4 py-2 text-sm font-semibold">Contacto</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-16 text-center">
+            <div class="glass-container p-8 max-w-4xl mx-auto">
+                <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Logo%20design%20for%20'La%20F%C3%A1brica%20de%20Software'%20%E2%80%94%20a%20modern%20and%20futuristic%20tech%20company.%20The%20logo%20should%20include%20a%20stylized%20factory%20merged%20with%20digital%20and%20technological%20elements%20like%20circuit%20lines%2C%20gears%2C%20code%20fragm%20(3).jpg" alt="Imagen de portada de La Fabrica Software" class="rounded-xl shadow-lg mx-auto mb-8 w-full h-auto object-cover" style="max-height: 400px;">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-text-color-dark mb-4">Transformamos Ideas en Soluciones Digitales</h2>
+                <p class="text-lg text-text-color-light max-w-3xl mx-auto">¿Tienes una idea revolucionaria o un proceso que optimizar? Nosotros lo hacemos realidad. Convertimos tus desafíos en software inteligente y soluciones digitales que impulsan tu crecimiento, aumentan tus ventas y te colocan un paso adelante de la competencia.</p>
+                <div class="mt-8 w-full max-w-2xl mx-auto">
+                    <div class="aspect-video">
+                        <iframe class="w-full h-full rounded-xl shadow-lg" src="https://www.youtube.com/embed/I3biIj_JLO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicios" class="container mx-auto px-6 py-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Nuestros Servicios</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+                <!-- Service Card 1 -->
+                <div class="glass-container p-8 text-center overflow-hidden">
+                    <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/DESARRROLLO%20WEB%20Y%20APLICATIVOS%20A%20LA%20MEDIDA__IMAGEN%20DE%20REFERENCIA.jpg" alt="Desarrollo Web y Aplicativos a la medida" class="rounded-lg mb-6 w-full h-40 object-cover">
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Desarrollo web y aplicativos a la medida</h4>
+                    <p class="text-text-color-light">Páginas web, CRM, sistemas de inventarios y software único para tus necesidades.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="glass-container p-8 text-center overflow-hidden">
+                     <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Quiero%20una%20imagen%20para%20un%20contenedor%20de%20mi%20pagina%20web%20%2C%20es%20de%20un%20agente%20de%20respuestas%20automaticas%20entrenado%20de%20manera%20personalizada%20para%20whats%20app.jpg" alt="Inteligencia Artificial y LLMs" class="rounded-lg mb-6 w-full h-40 object-cover">
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Chatbots Semi-Humanos para Cierre de Tratos, Ventas y Asesoría.</h4>
+                    <p class="text-text-color-light">Entrenamos un chatbot semi-humano para asesorar, convertir conversaciones en ventas y fidelizar a tus clientes. 24/7.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="glass-container p-8 text-center overflow-hidden">
+                     <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/IMAGEN%20DE%20REFERENCIA%20DE%20DASHBOARD%20DE%20GRAFICAS%20Y%20METRICAS.jpg" alt="Datos y Automatización" class="rounded-lg mb-6 w-full h-40 object-cover">
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Datos y Automatización</h4>
+                    <p class="text-text-color-light">Podemos visualizar y automatizar reportes con herramientas como Power BI.</p>
+                </div>
+                <!-- Service Card 4 -->
+                 <div class="glass-container p-8 text-center overflow-hidden">
+                     <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Automatizaci%C3%B3n%20de%20Procesos_Podemos%20automatizar%20procesos%20repetitivos%20en%20tu%20empresa%20para%20mejorar%20la%20eficiencia.__Imagen%20de%20referencia.jpg" alt="Automatización de Procesos" class="rounded-lg mb-6 w-full h-40 object-cover">
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Automatización de Procesos</h4>
+                    <p class="text-text-color-light">Podemos automatizar procesos repetitivos en tu empresa para mejorar la eficiencia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="porque-nosotros" class="container mx-auto px-6 py-20">
+            <div class="glass-container p-12 max-w-5xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-10 text-text-color-dark">¿Por qué contratar con La Fabrica Software?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+                    <div class="flex flex-col items-center md:flex-row gap-4">
+                        <i data-lucide="dollar-sign" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Los Mejores Precios del Mercado</h4>
+                            <p class="text-text-color-light">Nos ajustamos al tamaño y presupuesto de tu empresa sin sacrificar calidad.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center md:flex-row gap-4">
+                        <i data-lucide="shield-check" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Garantía del Producto</h4>
+                            <p class="text-text-color-light">Ofrecemos una garantía total sobre el software desarrollado, asegurando su correcto funcionamiento.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center md:flex-row gap-4">
+                        <i data-lucide="wrench" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">1 Mes de Mejoras Incluido</h4>
+                            <p class="text-text-color-light">Tras la entrega, tienes un mes para solicitar correcciones o mejoras de contenido sin costo.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center md:flex-row gap-4">
+                        <i data-lucide="life-buoy" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
+                        <div>
+                            <h4 class="font-bold text-lg">Servicio de Mantenimiento</h4>
+                            <p class="text-text-color-light">Ofrecemos planes de mantenimiento para que tu software esté siempre actualizado y operativo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section id="insights" class="container mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-container p-8 text-center">
+                    <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">98%</h4>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2">Cumplimiento de Entrega</p>
+                </div>
+                <div class="glass-container p-8 text-center">
+                    <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">+35%</h4>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2">Aumento de Productividad</p>
+                </div>
+                <div class="glass-container p-8 text-center">
+                    <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">-40%</h4>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2">Reducción de Errores</p>
+                </div>
+                <div class="glass-container p-8 text-center">
+                    <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">95%</h4>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2">Satisfacción del Cliente</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="container mx-auto px-6 py-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Lo que dicen nuestros clientes</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-container p-8">
+                    <p class="text-text-color-light italic">"El sistema de gestión de archivos que desarrollaron para nosotros fue un cambio total. Ahora somos mucho más eficientes."</p>
+                    <div class="mt-4">
+                        <p class="font-bold">Alcaldía de Cundinamarca</p>
+                        <p class="text-primary-color font-semibold">Impacto: +50% en productividad</p>
+                    </div>
+                </div>
+                <div class="glass-container p-8">
+                    <p class="text-text-color-light italic">"El chatbot para WhatsApp ha sido increíble. Las ventas han subido y nuestros clientes están más contentos."</p>
+                    <div class="mt-4">
+                        <p class="font-bold">Comercializadora los reyes</p>
+                        <p class="text-primary-color font-semibold">Impacto: +30% en ventas</p>
+                    </div>
+                </div>
+                <div class="glass-container p-8">
+                    <p class="text-text-color-light italic">"La aplicación para las convocatorias del SENA es robusta y fácil de usar. Un trabajo impecable."</p>
+                    <div class="mt-4">
+                        <p class="font-bold">Entidad educativa SENA</p>
+                        <p class="text-primary-color font-semibold">Impacto: -60% en tiempo de gestión</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="nosotros" class="container mx-auto px-6 py-20">
+            <div class="glass-container p-12 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-2/3">
+                    <h3 class="text-3xl font-bold mb-4 text-text-color-dark">Nuestra Trayectoria</h3>
+                    <p class="mb-4 text-text-color-light">Con <span class="font-bold" style="color: var(--primary-color);">6 años de experiencia</span>, en La Fabrica Software hemos sido pioneros en la creación de soluciones tecnológicas robustas y eficientes.</p>
+                    <p class="mb-4 text-text-color-light">Hemos completado con éxito más de <span class="font-bold" style="color: var(--primary-color);">40 proyectos</span>, demostrando nuestra capacidad para enfrentar desafíos complejos y entregar resultados excepcionales.</p>
+                    <p class="font-semibold text-text-color-dark">Proyectos destacados:</p>
+                    <ul class="list-disc list-inside mt-2 text-text-color-light space-y-1">
+                        <li>Aplicación de convocatorias para el SENA.</li>
+                        <li>Transcriptor de audiencias legales para una alcaldía.</li>
+                        <li>Gestor de archivos y seguimiento de procesos.</li>
+                        <li>Implementación de agente de respuestas con entrenamiento personalizado (LLM) dentro de aplicativos web.</li>
+                        <li>Automatización de agentes de respuesta semi-humanos en WhatsApp para vender y recolectar datos.</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/3 text-center space-y-6">
+                    <div class="glass-container p-6">
+                        <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">40+</h4>
+                        <p class="text-lg font-semibold text-text-color-dark">Proyectos Exitosos</p>
+                    </div>
+                    <div class="glass-container p-6">
+                        <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">6</h4>
+                        <p class="text-lg font-semibold text-text-color-dark">Años de Experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="container mx-auto px-6 py-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Hablemos de tu Proyecto</h3>
+            <div class="glass-container p-8 md:p-12 max-w-3xl mx-auto">
+                <form action="#" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-text-color-dark">Nombre</label>
+                            <input type="text" id="name" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-text-color-dark">Correo Electrónico</label>
+                            <input type="email" id="email" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="tu@email.com" required>
+                        </div>
+                    </div>
+                     <div class="mb-6">
+                        <label for="phone" class="block mb-2 text-sm font-medium text-text-color-dark">Número de Celular</label>
+                        <div class="flex">
+                            <select id="country_code" class="glass-input rounded-r-none p-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                <option>+57</option>
+                                <option>+1</option>
+                                <option>+52</option>
+                                <option>+34</option>
+                            </select>
+                            <input type="tel" id="phone" class="w-full p-3 glass-input rounded-l-none focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="300 123 4567" required>
+                        </div>
+                    </div>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="call_date" class="block mb-2 text-sm font-medium text-text-color-dark">Fecha para llamada (Opcional)</label>
+                            <input type="date" id="call_date" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+                        <div>
+                            <label for="call_time" class="block mb-2 text-sm font-medium text-text-color-dark">Hora para llamada (Opcional)</label>
+                            <input type="time" id="call_time" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium text-text-color-dark">Mensaje</label>
+                        <textarea id="message" rows="5" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Cuéntanos sobre tu idea o necesidad..." required></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" required>
+                            <span class="ml-2 text-sm text-text-color-light">Acepto la <a href="#" class="underline">política de tratamiento de datos</a>.</span>
+                        </label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="glass-button primary-button font-bold py-3 px-8 text-lg">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="container mx-auto px-6 py-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Preguntas Frecuentes</h3>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <details class="glass-container p-6">
+                    <summary class="font-semibold cursor-pointer">¿Cuánto tiempo toma desarrollar un proyecto?</summary>
+                    <p class="mt-2 text-text-color-light">El tiempo varía según la complejidad del proyecto. Un sitio web informativo puede tomar de 2 a 4 semanas, mientras que un aplicativo a medida puede requerir varios meses. Siempre establecemos un cronograma detallado al inicio.</p>
+                </details>
+                <details class="glass-container p-6">
+                    <summary class="font-semibold cursor-pointer">¿Ofrecen soporte después de la entrega?</summary>
+                    <p class="mt-2 text-text-color-light">¡Sí! Todos nuestros proyectos incluyen 1 mes de soporte gratuito para correcciones y mejoras. Además, ofrecemos planes de mantenimiento y soporte continuo para garantizar que tu software funcione siempre a la perfección.</p>
+                </details>
+                <details class="glass-container p-6">
+                    <summary class="font-semibold cursor-pointer">¿Cómo es el proceso de pago?</summary>
+                    <p class="mt-2 text-text-color-light">Generalmente, trabajamos con un pago inicial del 50% para comenzar el proyecto y el 50% restante al momento de la entrega final. Somos flexibles y podemos adaptarnos a las necesidades de tu empresa.</p>
+                </details>
+                <details class="glass-container p-6">
+                    <summary class="font-semibold cursor-pointer">¿Pueden integrar el software con mis sistemas actuales?</summary>
+                    <p class="mt-2 text-text-color-light">Absolutamente. Nos especializamos en la integración de nuestras soluciones con sistemas existentes como CRMs, ERPs y otras plataformas, asegurando un flujo de trabajo unificado y eficiente.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="container mx-auto px-6 py-10">
+            <div class="glass-container p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center text-center md:text-left gap-8">
+                <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/camilo.png" alt="Foto de Camilo Andrés Serrano Sánchez" class="w-48 h-64 rounded-2xl object-cover border-4 border-white shadow-lg flex-shrink-0">
+                <div class="flex-grow">
+                    <h4 class="font-bold text-2xl text-text-color-dark">Camilo Andrés Serrano Sánchez</h4>
+                    <p class="text-text-color-light font-semibold">Gerente General y CEO | Ingeniero de Sistemas</p>
+                    <p class="text-sm text-text-color-light mt-2">28 años | Bogotá, Colombia</p>
+                    <p class="mt-4 text-text-color-light">Con más de 9 años de trayectoria en tecnología, mi pasión es construir soluciones innovadoras. Cuando no estoy programando, me encontrarás practicando deportes extremos.</p>
+                    <a href="https://wa.me/573209415494" target="_blank" class="glass-button inline-flex items-center px-4 py-2 font-semibold mt-4">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span class="ml-2">Contactar por WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            <p class="mt-8 text-sm text-text-color-light text-center">&copy; 2025 La Fabrica Software. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
+                "color": { "value": "#000000" }, // Color de las partículas cambiado a negro
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#000000", "opacity": 0.4, "width": 1 }, // Color de las líneas cambiado a negro
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }}
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": {
+                    "grab": { "distance": 400, "line_linked": { "opacity": 1 }},
+                    "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+                    "repulse": { "distance": 200, "duration": 0.4 }, // Distancia de repulsión aumentada para efecto 3D
+                    "push": { "particles_nb": 4 },
+                    "remove": { "particles_nb": 2 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
