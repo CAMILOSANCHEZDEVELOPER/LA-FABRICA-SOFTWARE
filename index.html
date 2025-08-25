@@ -100,6 +100,43 @@
             color: white;
             box-shadow: 0 4px 20px 0 rgba(0, 82, 212, 0.3);
         }
+        
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), #4e8cff);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px 0 rgba(0, 82, 212, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 6px 25px 0 rgba(0, 82, 212, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .cta-button::before {
+            --x: 50%;
+            --y: 50%;
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: radial-gradient(circle 150px at var(--x) var(--y), rgba(255, 255, 255, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid var(--primary-color);
@@ -181,13 +218,13 @@
         <section id="idea-generator" class="container mx-auto px-6 py-20">
             <div class="glass-container p-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
                 <div class="w-full md:w-1/3 flex-shrink-0">
-                    <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Leonardo_Kino_XL_Ultrarealistic_SVG_image_of_a_male_humanoid_A_3-removebg-preview%20(2).png" alt="Asistente de IA" class="w-full h-auto">
+                    <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Leonardo_Kino_XL_Ultrarealistic_SVG_image_of_a_male_humanoid_A_3-removebg-preview%20(1).png" alt="Asistente de IA" class="w-full h-auto">
                 </div>
                 <div class="w-full md:w-2/3 text-center md:text-left">
-                    <h3 class="text-3xl font-bold text-text-color-dark mb-4">Refina y complementa tus ideas con IA</h3>
+                    <h3 class="text-3xl font-bold text-text-color-dark mb-4">Refina y complementa tus ideas con IA ✨</h3>
                     <p class="text-text-color-light mb-6">Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.</p>
                     <textarea id="idea-input" rows="4" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: Una app para conectar a dueños de mascotas con cuidadores locales..."></textarea>
-                    <button id="generate-ideas-btn" class="glass-button primary-button font-bold py-3 px-8 text-lg mt-4">
+                    <button id="generate-ideas-btn" class="cta-button font-bold py-3 px-8 text-lg mt-4">
                         Generar Sugerencias
                     </button>
                     <div id="loading-indicator" class="hidden justify-center items-center mt-4">
@@ -398,7 +435,7 @@
                         </label>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="glass-button primary-button font-bold py-3 px-8 text-lg">
+                        <button type="submit" class="cta-button font-bold py-3 px-8 text-lg">
                             Enviar Mensaje
                         </button>
                     </div>
@@ -483,6 +520,17 @@
                 ideasOutput.classList.remove('hidden');
                 generateIdeasBtn.disabled = false;
             }
+        });
+
+        const ctaButtons = document.querySelectorAll('.cta-button');
+        ctaButtons.forEach(button => {
+            button.addEventListener('mousemove', e => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                button.style.setProperty('--x', `${x}px`);
+                button.style.setProperty('--y', `${y}px`);
+            });
         });
 
 
