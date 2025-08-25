@@ -150,22 +150,45 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        .lang-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .floating-whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 100;
+        }
     </style>
 </head>
 <body class="antialiased">
     <div class="aurora-background"></div>
     <div id="particles-js"></div>
 
+    <a href="https://wa.me/573209415494" target="_blank" class="floating-whatsapp-btn cta-button p-4 rounded-full shadow-lg flex items-center">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span class="ml-2 font-semibold" data-lang-key="whatsappBtn">Escríbenos</span>
+    </a>
+
     <div class="relative z-10">
         <!-- Header -->
         <header class="container mx-auto px-6 py-6">
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-extrabold text-text-color-dark">La Fabrica Software</h1>
-                <nav class="hidden md:flex items-center gap-2">
-                    <a href="#servicios" class="glass-button px-4 py-2 text-sm font-semibold">Servicios</a>
-                    <a href="#nosotros" class="glass-button px-4 py-2 text-sm font-semibold">Nosotros</a>
-                    <a href="#contacto" class="glass-button primary-button px-4 py-2 text-sm font-semibold">Contacto</a>
-                </nav>
+                <div class="flex items-center gap-4">
+                    <nav class="hidden md:flex items-center gap-2">
+                        <a href="#servicios" class="glass-button px-4 py-2 text-sm font-semibold" data-lang-key="navServices">Servicios</a>
+                        <a href="#nosotros" class="glass-button px-4 py-2 text-sm font-semibold" data-lang-key="navAbout">Nosotros</a>
+                        <a href="#contacto" class="glass-button primary-button px-4 py-2 text-sm font-semibold" data-lang-key="navContact">Contacto</a>
+                    </nav>
+                    <div class="flex items-center gap-1 glass-button p-1">
+                        <button id="lang-es" class="lang-btn active px-3 py-1 text-sm font-semibold rounded-lg">ES</button>
+                        <button id="lang-en" class="lang-btn px-3 py-1 text-sm font-semibold rounded-lg">EN</button>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -173,8 +196,8 @@
         <section class="container mx-auto px-6 py-16 text-center">
             <div class="glass-container p-8 max-w-4xl mx-auto">
                 <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Logo%20design%20for%20'La%20F%C3%A1brica%20de%20Software'%20%E2%80%94%20a%20modern%20and%20futuristic%20tech%20company.%20The%20logo%20should%20include%20a%20stylized%20factory%20merged%20with%20digital%20and%20technological%20elements%20like%20circuit%20lines%2C%20gears%2C%20code%20fragm%20(3).jpg" alt="Imagen de portada de La Fabrica Software" class="rounded-xl shadow-lg mx-auto mb-8 w-full h-auto object-cover" style="max-height: 400px;">
-                <h2 class="text-4xl md:text-6xl font-extrabold text-text-color-dark mb-4">Transformamos Ideas en Soluciones Digitales</h2>
-                <p class="text-lg text-text-color-light max-w-3xl mx-auto">¿Tienes una idea revolucionaria o un proceso que optimizar? Nosotros lo hacemos realidad. Convertimos tus desafíos en software inteligente y soluciones digitales que impulsan tu crecimiento, aumentan tus ventas y te colocan un paso adelante de la competencia.</p>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-text-color-dark mb-4" data-lang-key="heroTitle">Transformamos Ideas en Soluciones Digitales</h2>
+                <p class="text-lg text-text-color-light max-w-3xl mx-auto" data-lang-key="heroSubtitle">¿Tienes una idea revolucionaria o un proceso que optimizar? Nosotros lo hacemos realidad. Convertimos tus desafíos en software inteligente y soluciones digitales que impulsan tu crecimiento, aumentan tus ventas y te colocan un paso adelante de la competencia.</p>
                 <div class="mt-8 w-full max-w-2xl mx-auto">
                     <div class="aspect-video">
                         <iframe class="w-full h-full rounded-xl shadow-lg" src="https://www.youtube.com/embed/I3biIj_JLO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -185,31 +208,31 @@
 
         <!-- Services Section -->
         <section id="servicios" class="container mx-auto px-6 py-20">
-            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Nuestros Servicios</h3>
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark" data-lang-key="servicesTitle">Nuestros Servicios</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
                 <!-- Service Card 1 -->
                 <div class="glass-container p-8 text-center overflow-hidden">
                     <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/DESARRROLLO%20WEB%20Y%20APLICATIVOS%20A%20LA%20MEDIDA__IMAGEN%20DE%20REFERENCIA.jpg" alt="Desarrollo Web y Aplicativos a la medida" class="rounded-lg mb-6 w-full h-40 object-cover">
-                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Desarrollo web y aplicativos a la medida</h4>
-                    <p class="text-text-color-light">Páginas web, CRM, sistemas de inventarios y software único para tus necesidades.</p>
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark" data-lang-key="service1Title">Desarrollo web y aplicativos a la medida</h4>
+                    <p class="text-text-color-light" data-lang-key="service1Desc">Páginas web, CRM, sistemas de inventarios y software único para tus necesidades.</p>
                 </div>
                 <!-- Service Card 2 -->
                 <div class="glass-container p-8 text-center overflow-hidden">
                      <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Quiero%20una%20imagen%20para%20un%20contenedor%20de%20mi%20pagina%20web%20%2C%20es%20de%20un%20agente%20de%20respuestas%20automaticas%20entrenado%20de%20manera%20personalizada%20para%20whats%20app.jpg" alt="Inteligencia Artificial y LLMs" class="rounded-lg mb-6 w-full h-40 object-cover">
-                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Chatbots Semi-Humanos para Cierre de Tratos, Ventas y Asesoría.</h4>
-                    <p class="text-text-color-light">Entrenamos un chatbot semi-humano para asesorar, convertir conversaciones en ventas y fidelizar a tus clientes. 24/7.</p>
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark" data-lang-key="service2Title">Chatbots Semi-Humanos para Cierre de Tratos, Ventas y Asesoría.</h4>
+                    <p class="text-text-color-light" data-lang-key="service2Desc">Entrenamos un chatbot semi-humano para asesorar, convertir conversaciones en ventas y fidelizar a tus clientes. 24/7.</p>
                 </div>
                 <!-- Service Card 3 -->
                 <div class="glass-container p-8 text-center overflow-hidden">
                      <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/IMAGEN%20DE%20REFERENCIA%20DE%20DASHBOARD%20DE%20GRAFICAS%20Y%20METRICAS.jpg" alt="Datos y Automatización" class="rounded-lg mb-6 w-full h-40 object-cover">
-                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Datos y Automatización</h4>
-                    <p class="text-text-color-light">Podemos visualizar y automatizar reportes con herramientas como Power BI.</p>
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark" data-lang-key="service3Title">Datos y Automatización</h4>
+                    <p class="text-text-color-light" data-lang-key="service3Desc">Podemos visualizar y automatizar reportes con herramientas como Power BI.</p>
                 </div>
                 <!-- Service Card 4 -->
                  <div class="glass-container p-8 text-center overflow-hidden">
                      <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Automatizaci%C3%B3n%20de%20Procesos_Podemos%20automatizar%20procesos%20repetitivos%20en%20tu%20empresa%20para%20mejorar%20la%20eficiencia.__Imagen%20de%20referencia.jpg" alt="Automatización de Procesos" class="rounded-lg mb-6 w-full h-40 object-cover">
-                    <h4 class="text-xl font-bold mb-2 text-text-color-dark">Automatización de Procesos</h4>
-                    <p class="text-text-color-light">Podemos automatizar procesos repetitivos en tu empresa para mejorar la eficiencia.</p>
+                    <h4 class="text-xl font-bold mb-2 text-text-color-dark" data-lang-key="service4Title">Automatización de Procesos</h4>
+                    <p class="text-text-color-light" data-lang-key="service4Desc">Podemos automatizar procesos repetitivos en tu empresa para mejorar la eficiencia.</p>
                 </div>
             </div>
         </section>
@@ -221,10 +244,10 @@
                     <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Leonardo_Kino_XL_Ultrarealistic_SVG_image_of_a_male_humanoid_A_3-removebg-preview%20(1).png" alt="Asistente de IA" class="w-full h-auto">
                 </div>
                 <div class="w-full md:w-2/3 text-center md:text-left">
-                    <h3 class="text-3xl font-bold text-text-color-dark mb-4">Refina y complementa tus ideas con IA ✨</h3>
-                    <p class="text-text-color-light mb-6">Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.</p>
-                    <textarea id="idea-input" rows="4" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: Una app para conectar a dueños de mascotas con cuidadores locales..."></textarea>
-                    <button id="generate-ideas-btn" class="cta-button font-bold py-3 px-8 text-lg mt-4">
+                    <h3 class="text-3xl font-bold text-text-color-dark mb-4" data-lang-key="geminiTitle">Refina y complementa tus ideas con IA ✨</h3>
+                    <p class="text-text-color-light mb-6" data-lang-key="geminiDesc">Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.</p>
+                    <textarea id="idea-input" rows="4" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" data-lang-key="geminiPlaceholder" placeholder="Ej: Una app para conectar a dueños de mascotas con cuidadores locales..."></textarea>
+                    <button id="generate-ideas-btn" class="cta-button font-bold py-3 px-8 text-lg mt-4" data-lang-key="geminiBtn">
                         Generar Sugerencias
                     </button>
                     <div id="loading-indicator" class="hidden justify-center items-center mt-4">
@@ -238,34 +261,34 @@
         <!-- Why Us Section -->
         <section id="porque-nosotros" class="container mx-auto px-6 py-20">
             <div class="glass-container p-12 max-w-5xl mx-auto">
-                <h3 class="text-3xl font-bold text-center mb-10 text-text-color-dark">¿Por qué contratar con La Fabrica Software?</h3>
+                <h3 class="text-3xl font-bold text-center mb-10 text-text-color-dark" data-lang-key="whyUsTitle">¿Por qué contratar con La Fabrica Software?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
                     <div class="flex flex-col items-center md:flex-row gap-4">
                         <i data-lucide="dollar-sign" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
                         <div>
-                            <h4 class="font-bold text-lg">Los Mejores Precios del Mercado</h4>
-                            <p class="text-text-color-light">Nos ajustamos al tamaño y presupuesto de tu empresa sin sacrificar calidad.</p>
+                            <h4 class="font-bold text-lg" data-lang-key="whyUs1Title">Los Mejores Precios del Mercado</h4>
+                            <p class="text-text-color-light" data-lang-key="whyUs1Desc">Nos ajustamos al tamaño y presupuesto de tu empresa sin sacrificar calidad.</p>
                         </div>
                     </div>
                     <div class="flex flex-col items-center md:flex-row gap-4">
                         <i data-lucide="shield-check" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
                         <div>
-                            <h4 class="font-bold text-lg">Garantía del Producto</h4>
-                            <p class="text-text-color-light">Ofrecemos una garantía total sobre el software desarrollado, asegurando su correcto funcionamiento.</p>
+                            <h4 class="font-bold text-lg" data-lang-key="whyUs2Title">Garantía del Producto</h4>
+                            <p class="text-text-color-light" data-lang-key="whyUs2Desc">Ofrecemos una garantía total sobre el software desarrollado, asegurando su correcto funcionamiento.</p>
                         </div>
                     </div>
                     <div class="flex flex-col items-center md:flex-row gap-4">
                         <i data-lucide="wrench" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
                         <div>
-                            <h4 class="font-bold text-lg">1 Mes de Mejoras Incluido</h4>
-                            <p class="text-text-color-light">Tras la entrega, tienes un mes para solicitar correcciones o mejoras de contenido sin costo.</p>
+                            <h4 class="font-bold text-lg" data-lang-key="whyUs3Title">1 Mes de Mejoras Incluido</h4>
+                            <p class="text-text-color-light" data-lang-key="whyUs3Desc">Tras la entrega, tienes un mes para solicitar correcciones o mejoras de contenido sin costo.</p>
                         </div>
                     </div>
                     <div class="flex flex-col items-center md:flex-row gap-4">
                         <i data-lucide="life-buoy" class="w-10 h-10 text-primary-color flex-shrink-0"></i>
                         <div>
-                            <h4 class="font-bold text-lg">Servicio de Mantenimiento</h4>
-                            <p class="text-text-color-light">Ofrecemos planes de mantenimiento para que tu software esté siempre actualizado y operativo.</p>
+                            <h4 class="font-bold text-lg" data-lang-key="whyUs4Title">Servicio de Mantenimiento</h4>
+                            <p class="text-text-color-light" data-lang-key="whyUs4Desc">Ofrecemos planes de mantenimiento para que tu software esté siempre actualizado y operativo.</p>
                         </div>
                     </div>
                 </div>
@@ -277,46 +300,46 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="glass-container p-8 text-center">
                     <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">98%</h4>
-                    <p class="text-lg font-semibold text-text-color-dark mt-2">Cumplimiento de Entrega</p>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2" data-lang-key="insight1">Cumplimiento de Entrega</p>
                 </div>
                 <div class="glass-container p-8 text-center">
                     <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">+35%</h4>
-                    <p class="text-lg font-semibold text-text-color-dark mt-2">Aumento de Productividad</p>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2" data-lang-key="insight2">Aumento de Productividad</p>
                 </div>
                 <div class="glass-container p-8 text-center">
                     <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">-40%</h4>
-                    <p class="text-lg font-semibold text-text-color-dark mt-2">Reducción de Errores</p>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2" data-lang-key="insight3">Reducción de Errores</p>
                 </div>
                 <div class="glass-container p-8 text-center">
                     <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">95%</h4>
-                    <p class="text-lg font-semibold text-text-color-dark mt-2">Satisfacción del Cliente</p>
+                    <p class="text-lg font-semibold text-text-color-dark mt-2" data-lang-key="insight4">Satisfacción del Cliente</p>
                 </div>
             </div>
         </section>
         
         <!-- Testimonials Section -->
         <section id="testimonios" class="container mx-auto px-6 py-20">
-            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Lo que dicen nuestros clientes</h3>
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark" data-lang-key="testimonialsTitle">Lo que dicen nuestros clientes</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="glass-container p-8">
-                    <p class="text-text-color-light italic">"El sistema de gestión de archivos que desarrollaron para nosotros fue un cambio total. Ahora somos mucho más eficientes."</p>
+                    <p class="text-text-color-light italic" data-lang-key="testimonial1Text">"El sistema de gestión de archivos que desarrollaron para nosotros fue un cambio total. Ahora somos mucho más eficientes."</p>
                     <div class="mt-4">
-                        <p class="font-bold">Alcaldía de Cundinamarca</p>
-                        <p class="text-primary-color font-semibold">Impacto: +50% en productividad</p>
+                        <p class="font-bold" data-lang-key="testimonial1Client">Alcaldía de Cundinamarca</p>
+                        <p class="text-primary-color font-semibold" data-lang-key="testimonial1Impact">Impacto: +50% en productividad</p>
                     </div>
                 </div>
                 <div class="glass-container p-8">
-                    <p class="text-text-color-light italic">"El chatbot para WhatsApp ha sido increíble. Las ventas han subido y nuestros clientes están más contentos."</p>
+                    <p class="text-text-color-light italic" data-lang-key="testimonial2Text">"El chatbot para WhatsApp ha sido increíble. Las ventas han subido y nuestros clientes están más contentos."</p>
                     <div class="mt-4">
-                        <p class="font-bold">Comercializadora los reyes</p>
-                        <p class="text-primary-color font-semibold">Impacto: +30% en ventas</p>
+                        <p class="font-bold" data-lang-key="testimonial2Client">Comercializadora los reyes</p>
+                        <p class="text-primary-color font-semibold" data-lang-key="testimonial2Impact">Impacto: +30% en ventas</p>
                     </div>
                 </div>
                 <div class="glass-container p-8">
-                    <p class="text-text-color-light italic">"La aplicación para las convocatorias del SENA es robusta y fácil de usar. Un trabajo impecable."</p>
+                    <p class="text-text-color-light italic" data-lang-key="testimonial3Text">"La aplicación para las convocatorias del SENA es robusta y fácil de usar. Un trabajo impecable."</p>
                     <div class="mt-4">
-                        <p class="font-bold">Entidad educativa SENA</p>
-                        <p class="text-primary-color font-semibold">Impacto: -60% en tiempo de gestión</p>
+                        <p class="font-bold" data-lang-key="testimonial3Client">Entidad educativa SENA</p>
+                        <p class="text-primary-color font-semibold" data-lang-key="testimonial3Impact">Impacto: -60% en tiempo de gestión</p>
                     </div>
                 </div>
             </div>
@@ -326,11 +349,11 @@
         <section id="nosotros" class="container mx-auto px-6 py-20">
             <div class="glass-container p-12 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-2/3">
-                    <h3 class="text-3xl font-bold mb-4 text-text-color-dark">Nuestra Trayectoria</h3>
-                    <p class="mb-4 text-text-color-light">Con <span class="font-bold" style="color: var(--primary-color);">6 años de experiencia</span>, en La Fabrica Software hemos sido pioneros en la creación de soluciones tecnológicas robustas y eficientes.</p>
-                    <p class="mb-4 text-text-color-light">Hemos completado con éxito más de <span class="font-bold" style="color: var(--primary-color);">40 proyectos</span>, demostrando nuestra capacidad para enfrentar desafíos complejos y entregar resultados excepcionales.</p>
-                    <p class="font-semibold text-text-color-dark">Proyectos destacados:</p>
-                    <ul class="list-disc list-inside mt-2 text-text-color-light space-y-1">
+                    <h3 class="text-3xl font-bold mb-4 text-text-color-dark" data-lang-key="aboutTitle">Nuestra Trayectoria</h3>
+                    <p class="mb-4 text-text-color-light" data-lang-key="aboutP1">Con <span class="font-bold" style="color: var(--primary-color);">6 años de experiencia</span>, en La Fabrica Software hemos sido pioneros en la creación de soluciones tecnológicas robustas y eficientes.</p>
+                    <p class="mb-4 text-text-color-light" data-lang-key="aboutP2">Hemos completado con éxito más de <span class="font-bold" style="color: var(--primary-color);">40 proyectos</span>, demostrando nuestra capacidad para enfrentar desafíos complejos y entregar resultados excepcionales.</p>
+                    <p class="font-semibold text-text-color-dark" data-lang-key="aboutProjectsTitle">Proyectos destacados:</p>
+                    <ul class="list-disc list-inside mt-2 text-text-color-light space-y-1" data-lang-key="aboutProjectsList">
                         <li>Aplicación de convocatorias para el SENA.</li>
                         <li>Transcriptor de audiencias legales para una alcaldía.</li>
                         <li>Gestor de archivos y seguimiento de procesos.</li>
@@ -341,11 +364,11 @@
                 <div class="md:w-1/3 text-center space-y-6">
                     <div class="glass-container p-6">
                         <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">40+</h4>
-                        <p class="text-lg font-semibold text-text-color-dark">Proyectos Exitosos</p>
+                        <p class="text-lg font-semibold text-text-color-dark" data-lang-key="aboutMetric1">Proyectos Exitosos</p>
                     </div>
                     <div class="glass-container p-6">
                         <h4 class="text-5xl font-extrabold" style="color: var(--primary-color);">6</h4>
-                        <p class="text-lg font-semibold text-text-color-dark">Años de Experiencia</p>
+                        <p class="text-lg font-semibold text-text-color-dark" data-lang-key="aboutMetric2">Años de Experiencia</p>
                     </div>
                 </div>
             </div>
@@ -353,12 +376,12 @@
                 <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/camilo.png" alt="Foto de Camilo Andrés Serrano Sánchez" class="w-48 h-64 rounded-2xl object-cover border-4 border-white shadow-lg flex-shrink-0">
                 <div class="flex-grow">
                     <h4 class="font-bold text-2xl text-text-color-dark">Camilo Andrés Serrano Sánchez</h4>
-                    <p class="text-text-color-light font-semibold">Gerente General y CEO | Ingeniero de Sistemas</p>
-                    <p class="text-sm text-text-color-light mt-2">28 años | Bogotá, Colombia</p>
-                    <p class="mt-4 text-text-color-light">Con más de 9 años de trayectoria en tecnología, mi pasión es construir soluciones innovadoras. Cuando no estoy programando, me encontrarás practicando deportes extremos.</p>
+                    <p class="text-text-color-light font-semibold" data-lang-key="bioRole">Gerente General y CEO | Ingeniero de Sistemas</p>
+                    <p class="text-sm text-text-color-light mt-2" data-lang-key="bioInfo">28 años | Bogotá, Colombia</p>
+                    <p class="mt-4 text-text-color-light" data-lang-key="bioDesc">Con más de 9 años de trayectoria en tecnología, mi pasión es construir soluciones innovadoras. Cuando no estoy programando, me encontrarás practicando deportes extremos.</p>
                     <a href="https://wa.me/573209415494" target="_blank" class="glass-button inline-flex items-center px-4 py-2 font-semibold mt-4">
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        <span class="ml-2">Contactar por WhatsApp</span>
+                        <span class="ml-2" data-lang-key="bioContact">Contactar por WhatsApp</span>
                     </a>
                 </div>
             </div>
@@ -366,44 +389,44 @@
 
         <!-- FAQ Section -->
         <section id="faq" class="container mx-auto px-6 py-20">
-            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Preguntas Frecuentes</h3>
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark" data-lang-key="faqTitle">Preguntas Frecuentes</h3>
             <div class="max-w-3xl mx-auto space-y-4">
                 <details class="glass-container p-6">
-                    <summary class="font-semibold cursor-pointer">¿Cuánto tiempo toma desarrollar un proyecto?</summary>
-                    <p class="mt-2 text-text-color-light">El tiempo varía según la complejidad del proyecto. Un sitio web informativo puede tomar de 2 a 4 semanas, mientras que un aplicativo a medida puede requerir varios meses. Siempre establecemos un cronograma detallado al inicio.</p>
+                    <summary class="font-semibold cursor-pointer" data-lang-key="faq1Title">¿Cuánto tiempo toma desarrollar un proyecto?</summary>
+                    <p class="mt-2 text-text-color-light" data-lang-key="faq1Desc">El tiempo varía según la complejidad del proyecto. Un sitio web informativo puede tomar de 2 a 4 semanas, mientras que un aplicativo a medida puede requerir varios meses. Siempre establecemos un cronograma detallado al inicio.</p>
                 </details>
                 <details class="glass-container p-6">
-                    <summary class="font-semibold cursor-pointer">¿Ofrecen soporte después de la entrega?</summary>
-                    <p class="mt-2 text-text-color-light">¡Sí! Todos nuestros proyectos incluyen 1 mes de soporte gratuito para correcciones y mejoras. Además, ofrecemos planes de mantenimiento y soporte continuo para garantizar que tu software funcione siempre a la perfección.</p>
+                    <summary class="font-semibold cursor-pointer" data-lang-key="faq2Title">¿Ofrecen soporte después de la entrega?</summary>
+                    <p class="mt-2 text-text-color-light" data-lang-key="faq2Desc">¡Sí! Todos nuestros proyectos incluyen 1 mes de soporte gratuito para correcciones y mejoras. Además, ofrecemos planes de mantenimiento y soporte continuo para garantizar que tu software funcione siempre a la perfección.</p>
                 </details>
                 <details class="glass-container p-6">
-                    <summary class="font-semibold cursor-pointer">¿Cómo es el proceso de pago?</summary>
-                    <p class="mt-2 text-text-color-light">Generalmente, trabajamos con un pago inicial del 50% para comenzar el proyecto y el 50% restante al momento de la entrega final. Somos flexibles y podemos adaptarnos a las necesidades de tu empresa.</p>
+                    <summary class="font-semibold cursor-pointer" data-lang-key="faq3Title">¿Cómo es el proceso de pago?</summary>
+                    <p class="mt-2 text-text-color-light" data-lang-key="faq3Desc">Generalmente, trabajamos con un pago inicial del 50% para comenzar el proyecto y el 50% restante al momento de la entrega final. Somos flexibles y podemos adaptarnos a las necesidades de tu empresa.</p>
                 </details>
                 <details class="glass-container p-6">
-                    <summary class="font-semibold cursor-pointer">¿Pueden integrar el software con mis sistemas actuales?</summary>
-                    <p class="mt-2 text-text-color-light">Absolutamente. Nos especializamos en la integración de nuestras soluciones con sistemas existentes como CRMs, ERPs y otras plataformas, asegurando un flujo de trabajo unificado y eficiente.</p>
+                    <summary class="font-semibold cursor-pointer" data-lang-key="faq4Title">¿Pueden integrar el software con mis sistemas actuales?</summary>
+                    <p class="mt-2 text-text-color-light" data-lang-key="faq4Desc">Absolutamente. Nos especializamos en la integración de nuestras soluciones con sistemas existentes como CRMs, ERPs y otras plataformas, asegurando un flujo de trabajo unificado y eficiente.</p>
                 </details>
             </div>
         </section>
         
         <!-- Contact Section -->
         <section id="contacto" class="container mx-auto px-6 py-20">
-            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark">Hablemos de tu Proyecto</h3>
+            <h3 class="text-4xl font-bold text-center mb-12 text-text-color-dark" data-lang-key="contactTitle">Hablemos de tu Proyecto</h3>
             <div class="glass-container p-8 md:p-12 max-w-3xl mx-auto">
                 <form action="#" method="POST">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-text-color-dark">Nombre</label>
-                            <input type="text" id="name" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Tu nombre completo" required>
+                            <label for="name" class="block mb-2 text-sm font-medium text-text-color-dark" data-lang-key="formName">Nombre</label>
+                            <input type="text" id="name" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" data-lang-key="formNamePlaceholder" placeholder="Tu nombre completo" required>
                         </div>
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-text-color-dark">Correo Electrónico</label>
-                            <input type="email" id="email" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="tu@email.com" required>
+                            <label for="email" class="block mb-2 text-sm font-medium text-text-color-dark" data-lang-key="formEmail">Correo Electrónico</label>
+                            <input type="email" id="email" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" data-lang-key="formEmailPlaceholder" placeholder="tu@email.com" required>
                         </div>
                     </div>
                      <div class="mb-6">
-                        <label for="phone" class="block mb-2 text-sm font-medium text-text-color-dark">Número de Celular</label>
+                        <label for="phone" class="block mb-2 text-sm font-medium text-text-color-dark" data-lang-key="formPhone">Número de Celular</label>
                         <div class="flex">
                             <select id="country_code" class="glass-input rounded-r-none p-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
                                 <option>+57</option>
@@ -411,31 +434,31 @@
                                 <option>+52</option>
                                 <option>+34</option>
                             </select>
-                            <input type="tel" id="phone" class="w-full p-3 glass-input rounded-l-none focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="300 123 4567" required>
+                            <input type="tel" id="phone" class="w-full p-3 glass-input rounded-l-none focus:outline-none focus:ring-2 focus:ring-blue-400" data-lang-key="formPhonePlaceholder" placeholder="300 123 4567" required>
                         </div>
                     </div>
                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label for="call_date" class="block mb-2 text-sm font-medium text-text-color-dark">Fecha para llamada (Opcional)</label>
+                            <label for="call_date" class="block mb-2 text-sm font-medium text-text-color-dark" data-lang-key="formDate">Fecha para llamada (Opcional)</label>
                             <input type="date" id="call_date" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400">
                         </div>
                         <div>
-                            <label for="call_time" class="block mb-2 text-sm font-medium text-text-color-dark">Hora para llamada (Opcional)</label>
+                            <label for="call_time" class="block mb-2 text-sm font-medium text-text-color-dark" data-lang-key="formTime">Hora para llamada (Opcional)</label>
                             <input type="time" id="call_time" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400">
                         </div>
                     </div>
                     <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm font-medium text-text-color-dark">Mensaje</label>
-                        <textarea id="message" rows="5" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Cuéntanos sobre tu idea o necesidad..." required></textarea>
+                        <label for="message" class="block mb-2 text-sm font-medium text-text-color-dark" data-lang-key="formMessage">Mensaje</label>
+                        <textarea id="message" rows="5" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" data-lang-key="formMessagePlaceholder" placeholder="Cuéntanos sobre tu idea o necesidad..." required></textarea>
                     </div>
                     <div class="mb-6">
                         <label class="flex items-center">
                             <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" required>
-                            <span class="ml-2 text-sm text-text-color-light">Acepto la <a href="#" class="underline">política de tratamiento de datos</a>.</span>
+                            <span class="ml-2 text-sm text-text-color-light" data-lang-key="formPolicy">Acepto la <a href="#" class="underline">política de tratamiento de datos</a>.</span>
                         </label>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="cta-button font-bold py-3 px-8 text-lg">
+                        <button type="submit" class="cta-button font-bold py-3 px-8 text-lg" data-lang-key="formSubmit">
                             Enviar Mensaje
                         </button>
                     </div>
@@ -445,7 +468,7 @@
 
         <!-- Footer -->
         <footer class="container mx-auto px-6 py-10">
-            <p class="text-sm text-text-color-light text-center">&copy; 2025 La Fabrica Software. Todos los derechos reservados.</p>
+            <p class="text-sm text-text-color-light text-center" data-lang-key="footerRights">&copy; 2025 La Fabrica Software. Todos los derechos reservados.</p>
         </footer>
     </div>
 
@@ -453,6 +476,196 @@
     <script>
         lucide.createIcons();
 
+        // --- LANGUAGE TRANSLATION ---
+        const translations = {
+            es: {
+                navServices: "Servicios",
+                navAbout: "Nosotros",
+                navContact: "Contacto",
+                heroTitle: "Transformamos Ideas en Soluciones Digitales",
+                heroSubtitle: "¿Tienes una idea revolucionaria o un proceso que optimizar? Nosotros lo hacemos realidad. Convertimos tus desafíos en software inteligente y soluciones digitales que impulsan tu crecimiento, aumentan tus ventas y te colocan un paso adelante de la competencia.",
+                servicesTitle: "Nuestros Servicios",
+                service1Title: "Desarrollo web y aplicativos a la medida",
+                service1Desc: "Páginas web, CRM, sistemas de inventarios y software único para tus necesidades.",
+                service2Title: "Chatbots Semi-Humanos para Cierre de Tratos, Ventas y Asesoría.",
+                service2Desc: "Entrenamos un chatbot semi-humano para asesorar, convertir conversaciones en ventas y fidelizar a tus clientes. 24/7.",
+                service3Title: "Datos y Automatización",
+                service3Desc: "Podemos visualizar y automatizar reportes con herramientas como Power BI.",
+                service4Title: "Automatización de Procesos",
+                service4Desc: "Podemos automatizar procesos repetitivos en tu empresa para mejorar la eficiencia.",
+                geminiTitle: "Refina y complementa tus ideas con IA ✨",
+                geminiDesc: "Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.",
+                geminiPlaceholder: "Ej: Una app para conectar a dueños de mascotas con cuidadores locales...",
+                geminiBtn: "Generar Sugerencias",
+                whyUsTitle: "¿Por qué contratar con La Fabrica Software?",
+                whyUs1Title: "Los Mejores Precios del Mercado",
+                whyUs1Desc: "Nos ajustamos al tamaño y presupuesto de tu empresa sin sacrificar calidad.",
+                whyUs2Title: "Garantía del Producto",
+                whyUs2Desc: "Ofrecemos una garantía total sobre el software desarrollado, asegurando su correcto funcionamiento.",
+                whyUs3Title: "1 Mes de Mejoras Incluido",
+                whyUs3Desc: "Tras la entrega, tienes un mes para solicitar correcciones o mejoras de contenido sin costo.",
+                whyUs4Title: "Servicio de Mantenimiento",
+                whyUs4Desc: "Ofrecemos planes de mantenimiento para que tu software esté siempre actualizado y operativo.",
+                insight1: "Cumplimiento de Entrega",
+                insight2: "Aumento de Productividad",
+                insight3: "Reducción de Errores",
+                insight4: "Satisfacción del Cliente",
+                testimonialsTitle: "Lo que dicen nuestros clientes",
+                testimonial1Text: `"El sistema de gestión de archivos que desarrollaron para nosotros fue un cambio total. Ahora somos mucho más eficientes."`,
+                testimonial1Client: "Alcaldía de Cundinamarca",
+                testimonial1Impact: "Impacto: +50% en productividad",
+                testimonial2Text: `"El chatbot para WhatsApp ha sido increíble. Las ventas han subido y nuestros clientes están más contentos."`,
+                testimonial2Client: "Comercializadora los reyes",
+                testimonial2Impact: "Impacto: +30% en ventas",
+                testimonial3Text: `"La aplicación para las convocatorias del SENA es robusta y fácil de usar. Un trabajo impecable."`,
+                testimonial3Client: "Entidad educativa SENA",
+                testimonial3Impact: "Impacto: -60% en tiempo de gestión",
+                aboutTitle: "Nuestra Trayectoria",
+                aboutP1: `Con <span class="font-bold" style="color: var(--primary-color);">6 años de experiencia</span>, en La Fabrica Software hemos sido pioneros en la creación de soluciones tecnológicas robustas y eficientes.`,
+                aboutP2: `Hemos completado con éxito más de <span class="font-bold" style="color: var(--primary-color);">40 proyectos</span>, demostrando nuestra capacidad para enfrentar desafíos complejos y entregar resultados excepcionales.`,
+                aboutProjectsTitle: "Proyectos destacados:",
+                aboutProjectsList: `<li>Aplicación de convocatorias para el SENA.</li><li>Transcriptor de audiencias legales para una alcaldía.</li><li>Gestor de archivos y seguimiento de procesos.</li><li>Implementación de agente de respuestas con entrenamiento personalizado (LLM) dentro de aplicativos web.</li><li>Automatización de agentes de respuesta semi-humanos en WhatsApp para vender y recolectar datos.</li>`,
+                aboutMetric1: "Proyectos Exitosos",
+                aboutMetric2: "Años de Experiencia",
+                bioRole: "Gerente General y CEO | Ingeniero de Sistemas",
+                bioInfo: "28 años | Bogotá, Colombia",
+                bioDesc: "Con más de 9 años de trayectoria en tecnología, mi pasión es construir soluciones innovadoras. Cuando no estoy programando, me encontrarás practicando deportes extremos.",
+                bioContact: "Contactar por WhatsApp",
+                faqTitle: "Preguntas Frecuentes",
+                faq1Title: "¿Cuánto tiempo toma desarrollar un proyecto?",
+                faq1Desc: "El tiempo varía según la complejidad del proyecto. Un sitio web informativo puede tomar de 2 a 4 semanas, mientras que un aplicativo a medida puede requerir varios meses. Siempre establecemos un cronograma detallado al inicio.",
+                faq2Title: "¿Ofrecen soporte después de la entrega?",
+                faq2Desc: "¡Sí! Todos nuestros proyectos incluyen 1 mes de soporte gratuito para correcciones y mejoras. Además, ofrecemos planes de mantenimiento y soporte continuo para garantizar que tu software funcione siempre a la perfección.",
+                faq3Title: "¿Cómo es el proceso de pago?",
+                faq3Desc: "Generalmente, trabajamos con un pago inicial del 50% para comenzar el proyecto y el 50% restante al momento de la entrega final. Somos flexibles y podemos adaptarnos a las necesidades de tu empresa.",
+                faq4Title: "¿Pueden integrar el software con mis sistemas actuales?",
+                faq4Desc: "Absolutamente. Nos especializamos en la integración de nuestras soluciones con sistemas existentes como CRMs, ERPs y otras plataformas, asegurando un flujo de trabajo unificado y eficiente.",
+                contactTitle: "Hablemos de tu Proyecto",
+                formName: "Nombre",
+                formNamePlaceholder: "Tu nombre completo",
+                formEmail: "Correo Electrónico",
+                formEmailPlaceholder: "tu@email.com",
+                formPhone: "Número de Celular",
+                formPhonePlaceholder: "300 123 4567",
+                formDate: "Fecha para llamada (Opcional)",
+                formTime: "Hora para llamada (Opcional)",
+                formMessage: "Mensaje",
+                formMessagePlaceholder: "Cuéntanos sobre tu idea o necesidad...",
+                formPolicy: `Acepto la <a href="#" class="underline">política de tratamiento de datos</a>.`,
+                formSubmit: "Enviar Mensaje",
+                footerRights: "&copy; 2025 La Fabrica Software. Todos los derechos reservados.",
+                whatsappBtn: "Escríbenos",
+            },
+            en: {
+                navServices: "Services",
+                navAbout: "About Us",
+                navContact: "Contact",
+                heroTitle: "We Transform Ideas into Digital Solutions",
+                heroSubtitle: "Have a revolutionary idea or a process to optimize? We make it happen. We turn your challenges into intelligent software and digital solutions that drive your growth, increase your sales, and put you one step ahead of the competition.",
+                servicesTitle: "Our Services",
+                service1Title: "Custom Web and Application Development",
+                service1Desc: "Websites, CRMs, inventory systems, and unique software tailored to your needs.",
+                service2Title: "Semi-Human Chatbots for Deal Closing, Sales, and Support",
+                service2Desc: "We train a semi-human chatbot to advise, convert conversations into sales, and build customer loyalty. 24/7.",
+                service3Title: "Data and Automation",
+                service3Desc: "We can visualize and automate reports with tools like Power BI.",
+                service4Title: "Process Automation",
+                service4Desc: "We can automate repetitive processes in your company to improve efficiency.",
+                geminiTitle: "Refine and Complement Your Ideas with AI ✨",
+                geminiDesc: "Use this tool to build and complement your ideas. Our AI, carefully trained for this purpose, will suggest the most optimal technologies for your project, giving us the perfect starting point to build a personalized and enhanced solution for you.",
+                geminiPlaceholder: "E.g., An app to connect pet owners with local sitters...",
+                geminiBtn: "Generate Suggestions",
+                whyUsTitle: "Why Hire La Fabrica Software?",
+                whyUs1Title: "The Best Market Prices",
+                whyUs1Desc: "We adapt to the size and budget of your company without sacrificing quality.",
+                whyUs2Title: "Product Warranty",
+                whyUs2Desc: "We offer a full warranty on the developed software, ensuring its proper functioning.",
+                whyUs3Title: "1 Month of Improvements Included",
+                whyUs3Desc: "After delivery, you have one month to request corrections or content improvements at no cost.",
+                whyUs4Title: "Maintenance Service",
+                whyUs4Desc: "We offer maintenance plans to keep your software always updated and operational.",
+                insight1: "On-Time Delivery",
+                insight2: "Productivity Increase",
+                insight3: "Error Reduction",
+                insight4: "Customer Satisfaction",
+                testimonialsTitle: "What Our Clients Say",
+                testimonial1Text: `"The file management system they developed for us was a game-changer. We are much more efficient now."`,
+                testimonial1Client: "Cundinamarca City Hall",
+                testimonial1Impact: "Impact: +50% in productivity",
+                testimonial2Text: `"The WhatsApp chatbot has been incredible. Sales have gone up, and our customers are happier."`,
+                testimonial2Client: "Los Reyes Trading Co.",
+                testimonial2Impact: "Impact: +30% in sales",
+                testimonial3Text: `"The application for the SENA calls is robust and easy to use. Impeccable work."`,
+                testimonial3Client: "SENA Educational Entity",
+                testimonial3Impact: "Impact: -60% in management time",
+                aboutTitle: "Our Journey",
+                aboutP1: `With <span class="font-bold" style="color: var(--primary-color);">6 years of experience</span>, at La Fabrica Software, we have been pioneers in creating robust and efficient technological solutions.`,
+                aboutP2: `We have successfully completed over <span class="font-bold" style="color: var(--primary-color);">40 projects</span>, demonstrating our ability to tackle complex challenges and deliver exceptional results.`,
+                aboutProjectsTitle: "Featured Projects:",
+                aboutProjectsList: `<li>Application for SENA calls.</li><li>Transcriber for legal hearings for a city hall.</li><li>File manager and process tracking.</li><li>Implementation of a response agent with custom training (LLM) within web applications.</li><li>Automation of semi-human response agents on WhatsApp for sales and data collection.</li>`,
+                aboutMetric1: "Successful Projects",
+                aboutMetric2: "Years of Experience",
+                bioRole: "General Manager & CEO | Systems Engineer",
+                bioInfo: "28 years old | Bogotá, Colombia",
+                bioDesc: "With over 9 years of experience in technology, my passion is building innovative solutions. When I'm not coding, you'll find me practicing extreme sports.",
+                bioContact: "Contact via WhatsApp",
+                faqTitle: "Frequently Asked Questions",
+                faq1Title: "How long does it take to develop a project?",
+                faq1Desc: "The time varies depending on the project's complexity. An informational website can take 2 to 4 weeks, while a custom application may require several months. We always establish a detailed timeline at the beginning.",
+                faq2Title: "Do you offer support after delivery?",
+                faq2Desc: "Yes! All our projects include 1 month of free support for corrections and improvements. We also offer maintenance and ongoing support plans to ensure your software always works perfectly.",
+                faq3Title: "What is the payment process?",
+                faq3Desc: "Generally, we work with a 50% down payment to start the project and the remaining 50% upon final delivery. We are flexible and can adapt to your company's needs.",
+                faq4Title: "Can you integrate the software with my current systems?",
+                faq4Desc: "Absolutely. We specialize in integrating our solutions with existing systems like CRMs, ERPs, and other platforms, ensuring a unified and efficient workflow.",
+                contactTitle: "Let's Talk About Your Project",
+                formName: "Name",
+                formNamePlaceholder: "Your full name",
+                formEmail: "Email",
+                formEmailPlaceholder: "you@email.com",
+                formPhone: "Phone Number",
+                formPhonePlaceholder: "300 123 4567",
+                formDate: "Date for a call (Optional)",
+                formTime: "Time for a call (Optional)",
+                formMessage: "Message",
+                formMessagePlaceholder: "Tell us about your idea or need...",
+                formPolicy: `I accept the <a href="#" class="underline">data treatment policy</a>.`,
+                formSubmit: "Send Message",
+                footerRights: "&copy; 2025 La Fabrica Software. All rights reserved.",
+                whatsappBtn: "Write to us",
+            }
+        };
+
+        const langEsBtn = document.getElementById('lang-es');
+        const langEnBtn = document.getElementById('lang-en');
+
+        const changeLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            // Update active button
+            if (lang === 'es') {
+                langEsBtn.classList.add('active');
+                langEnBtn.classList.remove('active');
+            } else {
+                langEnBtn.classList.add('active');
+                langEsBtn.classList.remove('active');
+            }
+        };
+
+        langEsBtn.addEventListener('click', () => changeLanguage('es'));
+        langEnBtn.addEventListener('click', () => changeLanguage('en'));
+
+
+        // --- GEMINI API ---
         const generateIdeasBtn = document.getElementById('generate-ideas-btn');
         const ideaInput = document.getElementById('idea-input');
         const ideasOutput = document.getElementById('ideas-output');
@@ -503,9 +716,8 @@
                     result.candidates[0].content && result.candidates[0].content.parts &&
                     result.candidates[0].content.parts.length > 0) {
                     const text = result.candidates[0].content.parts[0].text;
-                    // Simple markdown to HTML conversion
-                    let htmlContent = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
-                    htmlContent = htmlContent.replace(/^- (.*)/gm, '<li class="mb-2">$1</li>'); // List items
+                    let htmlContent = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    htmlContent = htmlContent.replace(/^- (.*)/gm, '<li class="mb-2">$1</li>');
                     htmlContent = '<ul>' + htmlContent + '</ul>';
                     ideasOutput.innerHTML = htmlContent;
                 } else {
@@ -522,6 +734,7 @@
             }
         });
 
+        // --- CTA BUTTON EFFECT ---
         const ctaButtons = document.querySelectorAll('.cta-button');
         ctaButtons.forEach(button => {
             button.addEventListener('mousemove', e => {
@@ -533,15 +746,15 @@
             });
         });
 
-
+        // --- PARTICLES.JS ---
         particlesJS('particles-js', {
             "particles": {
                 "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
-                "color": { "value": "#000000" }, // Color de las partículas cambiado a negro
+                "color": { "value": "#000000" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": false },
                 "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#000000", "opacity": 0.4, "width": 1 }, // Color de las líneas cambiado a negro
+                "line_linked": { "enable": true, "distance": 150, "color": "#000000", "opacity": 0.4, "width": 1 },
                 "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }}
             },
             "interactivity": {
@@ -550,13 +763,16 @@
                 "modes": {
                     "grab": { "distance": 400, "line_linked": { "opacity": 1 }},
                     "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
-                    "repulse": { "distance": 200, "duration": 0.4 }, // Distancia de repulsión aumentada para efecto 3D
+                    "repulse": { "distance": 200, "duration": 0.4 },
                     "push": { "particles_nb": 4 },
                     "remove": { "particles_nb": 2 }
                 }
             },
             "retina_detect": true
         });
+
+        // Initialize page with default language
+        changeLanguage('es');
     </script>
 </body>
 </html>
