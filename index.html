@@ -241,10 +241,10 @@
         <section id="idea-generator" class="container mx-auto px-6 py-20">
             <div class="glass-container p-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
                 <div class="w-full md:w-1/3 flex-shrink-0">
-                    <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Leonardo_Kino_XL_Ultrarealistic_SVG_image_of_a_male_humanoid_A_3-removebg-preview%20(1).png" alt="Asistente de IA" class="w-full h-auto">
+                    <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Leonardo_Kino_XL_Ultrarealistic_SVG_image_of_a_male_humanoid_A_3-removebg-preview%20(2).png" alt="Asistente de IA" class="w-full h-auto">
                 </div>
                 <div class="w-full md:w-2/3 text-center md:text-left">
-                    <h3 class="text-3xl font-bold text-text-color-dark mb-4" data-lang-key="geminiTitle">Refina y complementa tus ideas con IA ✨</h3>
+                    <h3 class="text-3xl font-bold text-text-color-dark mb-4" data-lang-key="geminiTitle">Refina y complementa tus ideas con IA</h3>
                     <p class="text-text-color-light mb-6" data-lang-key="geminiDesc">Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.</p>
                     <textarea id="idea-input" rows="4" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" data-lang-key="geminiPlaceholder" placeholder="Ej: Una app para conectar a dueños de mascotas con cuidadores locales..."></textarea>
                     <button id="generate-ideas-btn" class="cta-button font-bold py-3 px-8 text-lg mt-4" data-lang-key="geminiBtn">
@@ -255,6 +255,22 @@
                     </div>
                     <div id="ideas-output" class="mt-6 text-left hidden"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Visual Prototype Generator Section -->
+        <section id="prototype-generator" class="container mx-auto px-6 py-20">
+            <div class="glass-container p-8 max-w-5xl mx-auto text-center">
+                 <h3 class="text-3xl font-bold text-text-color-dark mb-4" data-lang-key="prototypeTitle">Visualiza tu App con IA</h3>
+                 <p class="text-text-color-light mb-6 max-w-3xl mx-auto" data-lang-key="prototypeDesc">¿Te cuesta imaginar cómo se vería tu idea? Descríbela abajo y nuestra IA generará dos propuestas de diseño (mockups) al instante. ¡Convierte tu concepto en una imagen tangible en segundos!</p>
+                 <textarea id="prototype-input" rows="4" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400 max-w-2xl mx-auto" data-lang-key="prototypePlaceholder" placeholder="Ej: Una app de recetas de cocina con un diseño minimalista, colores pastel y fotos grandes de comida..."></textarea>
+                 <button id="generate-prototype-btn" class="cta-button font-bold py-3 px-8 text-lg mt-4" data-lang-key="prototypeBtn">
+                    Generar Prototipos
+                 </button>
+                 <div id="prototype-loading" class="hidden justify-center items-center mt-6">
+                    <div class="loader"></div>
+                 </div>
+                 <div id="prototype-output" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8"></div>
             </div>
         </section>
 
@@ -493,10 +509,14 @@
                 service3Desc: "Podemos visualizar y automatizar reportes con herramientas como Power BI.",
                 service4Title: "Automatización de Procesos",
                 service4Desc: "Podemos automatizar procesos repetitivos en tu empresa para mejorar la eficiencia.",
-                geminiTitle: "Refina y complementa tus ideas con IA ✨",
+                geminiTitle: "Refina y complementa tus ideas con IA",
                 geminiDesc: "Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.",
                 geminiPlaceholder: "Ej: Una app para conectar a dueños de mascotas con cuidadores locales...",
                 geminiBtn: "Generar Sugerencias",
+                prototypeTitle: "Visualiza tu App con IA",
+                prototypeDesc: "¿Te cuesta imaginar cómo se vería tu idea? Descríbela abajo y nuestra IA generará dos propuestas de diseño (mockups) al instante. ¡Convierte tu concepto en una imagen tangible en segundos!",
+                prototypePlaceholder: "Ej: Una app de recetas de cocina con un diseño minimalista, colores pastel y fotos grandes de comida...",
+                prototypeBtn: "Generar Prototipos",
                 whyUsTitle: "¿Por qué contratar con La Fabrica Software?",
                 whyUs1Title: "Los Mejores Precios del Mercado",
                 whyUs1Desc: "Nos ajustamos al tamaño y presupuesto de tu empresa sin sacrificar calidad.",
@@ -571,10 +591,14 @@
                 service3Desc: "We can visualize and automate reports with tools like Power BI.",
                 service4Title: "Process Automation",
                 service4Desc: "We can automate repetitive processes in your company to improve efficiency.",
-                geminiTitle: "Refine and Complement Your Ideas with AI ✨",
+                geminiTitle: "Refine and Complement Your Ideas with AI",
                 geminiDesc: "Use this tool to build and complement your ideas. Our AI, carefully trained for this purpose, will suggest the most optimal technologies for your project, giving us the perfect starting point to build a personalized and enhanced solution for you.",
                 geminiPlaceholder: "E.g., An app to connect pet owners with local sitters...",
                 geminiBtn: "Generate Suggestions",
+                prototypeTitle: "Visualize Your App with AI",
+                prototypeDesc: "Struggling to imagine what your idea would look like? Describe it below and our AI will instantly generate two design proposals (mockups). Turn your concept into a tangible image in seconds!",
+                prototypePlaceholder: "E.g., A cooking recipe app with a minimalist design, pastel colors, and large food photos...",
+                prototypeBtn: "Generate Prototypes",
                 whyUsTitle: "Why Hire La Fabrica Software?",
                 whyUs1Title: "The Best Market Prices",
                 whyUs1Desc: "We adapt to the size and budget of your company without sacrificing quality.",
@@ -665,7 +689,7 @@
         langEnBtn.addEventListener('click', () => changeLanguage('en'));
 
 
-        // --- GEMINI API ---
+        // --- GEMINI API (TEXT) ---
         const generateIdeasBtn = document.getElementById('generate-ideas-btn');
         const ideaInput = document.getElementById('idea-input');
         const ideasOutput = document.getElementById('ideas-output');
@@ -733,6 +757,66 @@
                 generateIdeasBtn.disabled = false;
             }
         });
+
+        // --- GEMINI API (IMAGE) ---
+        const generatePrototypeBtn = document.getElementById('generate-prototype-btn');
+        const prototypeInput = document.getElementById('prototype-input');
+        const prototypeOutput = document.getElementById('prototype-output');
+        const prototypeLoading = document.getElementById('prototype-loading');
+
+        generatePrototypeBtn.addEventListener('click', async () => {
+            const userInput = prototypeInput.value.trim();
+            if (!userInput) {
+                prototypeOutput.innerHTML = '<p class="text-red-500 md:col-span-2">Por favor, describe tu idea de aplicación.</p>';
+                return;
+            }
+
+            prototypeLoading.style.display = 'flex';
+            prototypeOutput.innerHTML = '';
+            generatePrototypeBtn.disabled = true;
+
+            const prompt = `UI/UX mockup for a mobile app. The app is about: "${userInput}". Style: minimalist, clean, modern, professional, high-quality, 4k.`;
+
+            try {
+                const payload = { instances: [{ prompt: prompt }], parameters: { "sampleCount": 2} };
+                const apiKey = ""
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+
+                if (result.predictions && result.predictions.length > 0) {
+                    result.predictions.forEach(prediction => {
+                        const base64Data = prediction.bytesBase64Encoded;
+                        const imageUrl = `data:image/png;base64,${base64Data}`;
+                        const imgElement = document.createElement('img');
+                        imgElement.src = imageUrl;
+                        imgElement.alt = "Prototipo de App generado por IA";
+                        imgElement.className = "w-full h-auto rounded-lg shadow-lg";
+                        prototypeOutput.appendChild(imgElement);
+                    });
+                } else {
+                    throw new Error("No se recibieron imágenes válidas de la IA.");
+                }
+
+            } catch (error) {
+                console.error('Error generating prototypes:', error);
+                prototypeOutput.innerHTML = `<p class="text-red-500 md:col-span-2">Lo sentimos, ocurrió un error al generar los prototipos. Por favor, inténtalo de nuevo. Error: ${error.message}</p>`;
+            } finally {
+                prototypeLoading.style.display = 'none';
+                generatePrototypeBtn.disabled = false;
+            }
+        });
+
 
         // --- CTA BUTTON EFFECT ---
         const ctaButtons = document.querySelectorAll('.cta-button');
