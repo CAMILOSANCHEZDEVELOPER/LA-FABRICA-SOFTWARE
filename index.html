@@ -100,6 +100,19 @@
             color: white;
             box-shadow: 0 4px 20px 0 rgba(0, 82, 212, 0.3);
         }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -160,6 +173,27 @@
                      <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Automatizaci%C3%B3n%20de%20Procesos_Podemos%20automatizar%20procesos%20repetitivos%20en%20tu%20empresa%20para%20mejorar%20la%20eficiencia.__Imagen%20de%20referencia.jpg" alt="Automatización de Procesos" class="rounded-lg mb-6 w-full h-40 object-cover">
                     <h4 class="text-xl font-bold mb-2 text-text-color-dark">Automatización de Procesos</h4>
                     <p class="text-text-color-light">Podemos automatizar procesos repetitivos en tu empresa para mejorar la eficiencia.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gemini API Idea Generator Section -->
+        <section id="idea-generator" class="container mx-auto px-6 py-20">
+            <div class="glass-container p-8 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/3 flex-shrink-0">
+                    <img src="https://raw.githubusercontent.com/CAMILOSANCHEZDEVELOPER/REPOSITORIO-DE-IMAGENES-CAMILO-/refs/heads/main/Leonardo_Kino_XL_Ultrarealistic_SVG_image_of_a_male_humanoid_A_3-removebg-preview%20(2).png" alt="Asistente de IA" class="w-full h-auto">
+                </div>
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-text-color-dark mb-4">Refina y complementa tus ideas con IA</h3>
+                    <p class="text-text-color-light mb-6">Usa esta herramienta para construir y complementar tus ideas. Nuestra IA cuidadosamente entrenada para este fin te sugerirá las tecnologías más óptimas para tu proyecto, dándonos el punto de partida perfecto para construir una solución personalizada y re potencializada para ti.</p>
+                    <textarea id="idea-input" rows="4" class="w-full p-3 glass-input focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Ej: Una app para conectar a dueños de mascotas con cuidadores locales..."></textarea>
+                    <button id="generate-ideas-btn" class="glass-button primary-button font-bold py-3 px-8 text-lg mt-4">
+                        Generar Sugerencias
+                    </button>
+                    <div id="loading-indicator" class="hidden justify-center items-center mt-4">
+                        <div class="loader"></div>
+                    </div>
+                    <div id="ideas-output" class="mt-6 text-left hidden"></div>
                 </div>
             </div>
         </section>
@@ -381,6 +415,76 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         lucide.createIcons();
+
+        const generateIdeasBtn = document.getElementById('generate-ideas-btn');
+        const ideaInput = document.getElementById('idea-input');
+        const ideasOutput = document.getElementById('ideas-output');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        generateIdeasBtn.addEventListener('click', async () => {
+            const userInput = ideaInput.value.trim();
+            if (!userInput) {
+                ideasOutput.innerHTML = '<p class="text-red-500">Por favor, describe tu idea de negocio.</p>';
+                ideasOutput.classList.remove('hidden');
+                return;
+            }
+
+            loadingIndicator.style.display = 'flex';
+            ideasOutput.classList.add('hidden');
+            generateIdeasBtn.disabled = true;
+
+            const prompt = `
+                Basado en la siguiente idea de negocio, genera sugerencias para un proyecto de software.
+                Idea: "${userInput}"
+
+                Proporciona lo siguiente en formato de texto simple, usando viñetas:
+                - **Posibles Proyectos:** (Ej: Aplicación móvil, Plataforma web, etc.)
+                - **Tecnologías Recomendadas:** (Ej: React para el frontend, Node.js para el backend, etc.)
+                - **Características Clave:** (Ej: Registro de usuarios, Sistema de pagos, Notificaciones, etc.)
+            `;
+
+            try {
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "" 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error de la API: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    // Simple markdown to HTML conversion
+                    let htmlContent = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
+                    htmlContent = htmlContent.replace(/^- (.*)/gm, '<li class="mb-2">$1</li>'); // List items
+                    htmlContent = '<ul>' + htmlContent + '</ul>';
+                    ideasOutput.innerHTML = htmlContent;
+                } else {
+                   throw new Error("No se recibieron sugerencias válidas de la IA.");
+                }
+
+            } catch (error) {
+                console.error('Error al generar ideas:', error);
+                ideasOutput.innerHTML = `<p class="text-red-500">Lo sentimos, ocurrió un error al generar las ideas. Por favor, inténtalo de nuevo. Error: ${error.message}</p>`;
+            } finally {
+                loadingIndicator.style.display = 'none';
+                ideasOutput.classList.remove('hidden');
+                generateIdeasBtn.disabled = false;
+            }
+        });
+
 
         particlesJS('particles-js', {
             "particles": {
